@@ -7,7 +7,7 @@ This is particularly useful for tracking energy costs programmatically or integr
 ## How it Works
 
 1. Retrieves the HTML from a specified energy provider URL.
-2. Uses Google's Gemini to analyze the page and extract the electricity price.
+2. Strips the page down to its visible text and uses Google's Gemini to extract the electricity price.
 3. Extracted data is validated using `Pydantic` to ensure prices are within a realistic range.
 4. The result is saved to `public/index.json` for publishing via GitHub Pages or other static site hosts.
 
@@ -33,6 +33,7 @@ You need to set the following environment variables. You can set them in your sh
 2.  Edit `.env` and fill in your values:
     - `GOOGLE_API_KEY`: Your API key for Google Gemini.
     - `ENERGY_PROVIDER_URL`: The URL of the webpage containing the energy price.
+    - `GEMINI_MODEL_NAME` (optional): Overrides the default Gemini model.
 
 ## Running Locally
 
