@@ -204,6 +204,9 @@ def extract_price(page_text: str, settings: Settings) -> EnergyPriceInfo:
             response_mime_type="application/json",
             response_schema=EnergyPriceInfo,
             temperature=0.0,
+            automatic_function_calling=types.AutomaticFunctionCallingConfig(
+                disable=True
+            ),
         ),
     )
     if not response.text:
